@@ -34,7 +34,8 @@ define Package/qbittorrent
 	CATEGORY:=Network
 	SUBMENU:=BitTorrent
 	DEPENDS:=+libgcc +libstdcpp \
-		+rblibtorrent \
+		+boost \
+		+libtorrent-rasterbar \
 		+libopenssl \
 		+qt5-core \
 		+qt5-network \
