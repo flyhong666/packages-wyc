@@ -1,0 +1,41 @@
+From 5745da48fdacc4b08f4867aaf2070f55ef210ba9 Mon Sep 17 00:00:00 2001
+From: W_Y_CPP <383152993@qq.com>
+Date: Tue, 26 Apr 2022 02:09:01 -0400
+Subject: [PATCH] disable asm
+
+---
+ configure.ac | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index dc75e05..9321146 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -89,22 +89,12 @@ if test "x$cross_compiling" = "xyes" ; then
+ fi
+ GTK_DOC_CHECK([1.0])
+ 
+-
+-AS_GCC_INLINE_ASSEMBLY([HAVE_GCC_ASM=yes], [HAVE_GCC_ASM=no])
+-if test x$HAVE_GCC_ASM = xyes ; then
+-  AC_DEFINE(HAVE_GCC_ASM, 1,
+-    [Define if compiler supports gcc inline assembly])
+-fi
++HAVE_GCC_ASM=no
+ AM_CONDITIONAL(HAVE_GCC_ASM, test "x$HAVE_GCC_ASM" = "xyes")
+ 
+ AS_HOST_DEFINES()
+ 
+-AS_GCC_ASM_POWERPC_FPU([HAVE_GCC_ASM_POWERPC_FPU=yes],
+-  [HAVE_GCC_ASM_POWERPC_FPU=no])
+-if test x$HAVE_GCC_ASM_POWERPC_FPU = xyes ; then
+-  AC_DEFINE(HAVE_GCC_ASM_POWERPC_FPU, 1,
+-    [Define if compiler supports PowerPC FPU instructions])
+-fi
++HAVE_GCC_ASM_POWERPC_FPU=no
+ AM_CONDITIONAL(HAVE_GCC_ASM_POWERPC_FPU,
+   test "x$HAVE_GCC_ASM_POWERPC" = "xyes")
+ 
+-- 
+2.17.1
+
