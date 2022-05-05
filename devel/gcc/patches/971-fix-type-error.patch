@@ -1,0 +1,25 @@
+From 8585291dbfd51eadea7cd8fe81bbe668512d3d6a Mon Sep 17 00:00:00 2001
+From: W_Y_CPP <383152993@qq.com>
+Date: Thu, 5 May 2022 04:00:17 -0400
+Subject: [PATCH] fix type error
+
+---
+ gcc/config/i386/i386.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gcc/config/i386/i386.c b/gcc/config/i386/i386.c
+index e74f37f1c..640568e2c 100644
+--- a/gcc/config/i386/i386.c
++++ b/gcc/config/i386/i386.c
+@@ -9622,7 +9622,7 @@ function_arg_advance_32 (CUMULATIVE_ARGS *cum, machine_mode mode,
+ 			 HOST_WIDE_INT words)
+ {
+   int res = 0;
+-  bool error_p = NULL;
++  bool error_p = 0;
+ 
+   if (TARGET_IAMCU)
+     {
+-- 
+2.17.1
+
